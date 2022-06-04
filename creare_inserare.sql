@@ -249,20 +249,20 @@ CREATE TABLE COMENZI
 (
     id_comanda NUMBER(8, 0) CONSTRAINT PKEY_COMENZI PRIMARY KEY,
     adresa_livrare VARCHAR2(50) CONSTRAINT comenzi_adresa NOT NULL,
-    id_utilizator NUMBER(8, 0) CONSTRAINT comenzi_id_utilzator NOT NULL,
+    id_utilizator NUMBER(8, 0),
     CONSTRAINT FK_COMENZI_UTILIZATORI FOREIGN KEY (id_utilizator) REFERENCES UTILIZATORI(id_utilizator)
 );
 
-INSERT INTO COMENZI VALUES (1, 'Str. Crinului, nr. 22', 1);
-INSERT INTO COMENZI VALUES (2, 'Str. Crinului, nr. 22', 1);
-INSERT INTO COMENZI VALUES (3, 'Str. Crinului, nr. 22', 1);
-INSERT INTO COMENZI VALUES (4, 'Str. Crinului, nr. 22', 1);
-INSERT INTO COMENZI VALUES (5, 'Str. Crinului, nr. 22', 1);
-INSERT INTO COMENZI VALUES (6, 'Str. Speranței, nr. 34', 2);
-INSERT INTO COMENZI VALUES (7, 'Str. Speranței, nr. 34', 2);
-INSERT INTO COMENZI VALUES (8, 'Str. Cireșului, nr. 12', 3);
-INSERT INTO COMENZI VALUES (9, 'Str. Pinului, nr. 7', 4);
-INSERT INTO COMENZI VALUES (10, 'Str. Revoluției, nr. 3', 5);
+INSERT INTO COMENZI VALUES (1, 'Str. Crinului, nr. 22', NULL);
+INSERT INTO COMENZI VALUES (2, 'Str. Crinului, nr. 22', NULL);
+INSERT INTO COMENZI VALUES (3, 'Str. Crinului, nr. 22', NULL);
+INSERT INTO COMENZI VALUES (4, 'Str. Crinului, nr. 22', NULL);
+INSERT INTO COMENZI VALUES (5, 'Str. Crinului, nr. 22', NULL);
+INSERT INTO COMENZI VALUES (6, 'Str. Speranței, nr. 34', NULL);
+INSERT INTO COMENZI VALUES (7, 'Str. Speranței, nr. 34', NULL);
+INSERT INTO COMENZI VALUES (8, 'Str. Cireșului, nr. 12', NULL);
+INSERT INTO COMENZI VALUES (9, 'Str. Pinului, nr. 7', NULL);
+INSERT INTO COMENZI VALUES (10, 'Str. Revoluției, nr. 3', NULL);
 
 --SELECT * FROM COMENZI;
 
