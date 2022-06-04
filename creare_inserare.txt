@@ -1,6 +1,7 @@
 -------------------------------------- Proiect BD ElectroHub Database --------------------------------------
 
 ---------- TARI ----------
+
 CREATE TABLE TARI
 (
     id_tara NUMBER(8, 0) CONSTRAINT PKEY_TARI PRIMARY KEY,
