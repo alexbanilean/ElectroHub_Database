@@ -211,7 +211,7 @@ WHERE NOT EXISTS
 
 -----------------------------------------------------------------------------------------
 
--- 6. Să se afișeze numele angajaților ce lucrează la departamentul ce se află la locația cu id-ul 4 și au salariul strict mai mare de 3500 RON.
+-- 6. Să se afișeze numele angajaților ce lucrează la departamentul ce se află la locația cu id-ul 3 și au salariul strict mai mare de 3500 RON.
 
 -- varianta inițială
 SELECT a.id_angajat, a.nume, a.prenume
