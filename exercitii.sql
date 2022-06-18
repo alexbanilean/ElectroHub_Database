@@ -208,3 +208,42 @@ WHERE NOT EXISTS
         WHERE cm.id_client = c.id_client AND cm.id_comanda = cz.id_comanda
     )
 );
+
+-----------------------------------------------------------------------------------------
+
+-- 6. Să se afișeze numele angajaților ce lucrează la departamentul ce se află la locația cu id-ul 4 și au salariul strict mai mare de 3500 RON.
+
+-- varianta inițială
+SELECT a.id_angajat, a.nume, a.prenume
+FROM angajati a
+JOIN departamente d ON d.id_departament = a.id_departament
+WHERE a.salariu > 3500 AND d.id_locatie = 3;
+
+-- Expresia algebrică:
+-- R1 = JOIN(angajati, departamente)
+-- R2 = SELECT(R1, salariu > 3500)
+-- R3 = SELECT(R2, id_locatie = 3)
+-- REZULTAT = R4 = PROJECT(R3, id_angajat, nume, prenume)
+
+-- varianta optimizată
+
+SELECT t1.id_angajat, t1.nume, t1.prenume
+FROM
+(
+    SELECT id_angajat, nume, prenume, id_departament
+    FROM angajati
+    WHERE salariu > 3500
+) t1
+JOIN
+(
+    SELECT id_departament
+    FROM departamente
+    WHERE id_locatie = 3
+) t2 ON (t1.id_departament = t2.id_departament);
+
+-- Expresia algebrică:
+-- R1 = SELECT(angajati, salariu > 3500)
+-- R2 = PROJECT(R1, id_angajat, nume, prenume, id_departament)
+-- R3 = SELECT(departamente, id_locatie = 3)
+-- R4 = PROJECT(R3, id_departament)
+-- REZULTAT = R5 = JOIN(R2, R4)
